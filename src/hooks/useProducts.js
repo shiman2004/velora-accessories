@@ -5,28 +5,24 @@ import { supabase, isSupabaseConfigured } from '../supabaseClient';
 const DATA_VERSION = 'v2_luxury';
 
 export const useProducts = () => {
-  const [products, setProducts] = useState(initialProducts);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isUsingSupabase, setIsUsingSupabase] = useState(isSupabaseConfigured);
 
   // Fallback to local storage
   const loadFromLocalStorage = useCallback(() => {
-    const savedVersion = localStorage.getItem('veloraDataVersion');
     const savedProducts = localStorage.getItem('veloraProducts');
     
-    if (savedProducts && savedVersion === DATA_VERSION) {
+    if (savedProducts !== null) {
       try {
         const parsed = JSON.parse(savedProducts);
-        setProducts(parsed);
+        setProducts(Array.isArray(parsed) ? parsed : []);
       } catch (e) {
-        setProducts(initialProducts);
-        localStorage.setItem('veloraProducts', JSON.stringify(initialProducts));
-        localStorage.setItem('veloraDataVersion', DATA_VERSION);
+        setProducts([]);
       }
     } else {
-      setProducts(initialProducts);
-      localStorage.setItem('veloraProducts', JSON.stringify(initialProducts));
-      localStorage.setItem('veloraDataVersion', DATA_VERSION);
+      setProducts([]);
+      localStorage.setItem('veloraProducts', JSON.stringify([]));
     }
     setLoading(false);
   }, []);
