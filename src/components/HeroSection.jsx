@@ -1,10 +1,22 @@
 import '../styles/HeroSection.css';
+import heroBgImg from '../assets/hero-bg.jpg';
 
 export const HeroSection = ({ onExploreClick }) => {
   return (
-    <section className="hero-section">
+    <section className="hero-section full-bg-hero">
+      {/* Background Image Layer */}
+      <div 
+        className="hero-bg-layer" 
+        style={{ backgroundImage: `url(${heroBgImg})` }}
+        role="img"
+        aria-label="Velora Fine Pearls and Jewelry Collection"
+      ></div>
+
+      {/* Luxury Gradient Tint Overlay */}
+      <div className="hero-gradient-overlay"></div>
+
       <div className="container hero-container">
-        {/* Left Editorial Copy */}
+        {/* Editorial Content Showcase */}
         <div className="hero-content">
           <div className="hero-badge">
             <span className="badge-dot"></span>
@@ -39,7 +51,7 @@ export const HeroSection = ({ onExploreClick }) => {
             </a>
           </div>
 
-          {/* Sleek Minimalist Luxury Perks (No emojis) */}
+          {/* Sleek Minimalist Luxury Perks */}
           <div className="hero-perks">
             <div className="perk-item">
               <svg className="perk-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -58,35 +70,13 @@ export const HeroSection = ({ onExploreClick }) => {
               </svg>
               <span className="perk-text">Pre-orders Available</span>
             </div>
-          </div>
-        </div>
 
-        {/* Right Editorial Model Imagery */}
-        <div className="hero-media-wrapper">
-          <div className="hero-image-card">
-            <img 
-              src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1000&auto=format&fit=crop&q=85" 
-              alt="Velora Fine Jewellery & Accessories" 
-              className="hero-image"
-            />
-            {/* Overlay Tag */}
-            <div className="floating-hero-tag top-tag">
-              <div className="tag-indicator-dot"></div>
-              <div className="tag-text">
-                <p className="tag-label">Modern Jewellery</p>
-                <p className="tag-sub">Curated Edition</p>
-              </div>
-            </div>
-
-            <div className="floating-hero-tag bottom-tag">
-              <svg className="tag-location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="perk-item">
+              <svg className="perk-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
-              <div className="tag-text">
-                <p className="tag-label">Colombo, Sri Lanka</p>
-                <p className="tag-sub">Boutique Service</p>
-              </div>
+              <span className="perk-text">Colombo Boutique</span>
             </div>
           </div>
         </div>
