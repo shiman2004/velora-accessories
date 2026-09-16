@@ -16,11 +16,31 @@ export const Footer = () => {
               The finishing touch to every look. Curated modern jewellery, timeless bespoke accessories, and handcrafted lifestyle essentials designed to elevate your everyday elegance.
             </p>
             <div className="footer-social-links">
-              <a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer" className="social-pill" title="Instagram">
-                <span>Instagram @_velora_.accessories</span>
+              <a 
+                href="https://instagram.com/_velora_.accessories" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="social-icon-btn" 
+                title="Follow us on Instagram"
+                aria-label="Instagram"
+              >
+                <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
               </a>
-              <a href="https://tiktok.com/@_velora.accessories" target="_blank" rel="noopener noreferrer" className="social-pill" title="TikTok">
-                <span>TikTok</span>
+              <a 
+                href="https://tiktok.com/@_velora.accessories" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="social-icon-btn" 
+                title="Follow us on TikTok"
+                aria-label="TikTok"
+              >
+                <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
               </a>
             </div>
           </div>
@@ -35,17 +55,6 @@ export const Footer = () => {
               <li><a href="#collection-catalog">Statement Rings</a></li>
               <li><a href="#collection-catalog">Bags & Clutches</a></li>
               <li><a href="#collection-catalog">Hair Accessories</a></li>
-            </ul>
-          </div>
-
-          {/* Col 3: Customer Care & Ordering */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">BOUTIQUE CARE</h4>
-            <ul className="footer-links-list">
-              <li><a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">How Pre-Orders Work</a></li>
-              <li><a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">Island-wide Shipping Info</a></li>
-              <li><a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">Jewelry Care Guide</a></li>
-              <li><a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">Instagram DM Concierge</a></li>
             </ul>
           </div>
 
