@@ -1,5 +1,5 @@
 import '../styles/HeroSection.css';
-import heroBgImg from '../assets/hero-bg.jpg';
+import heroBgImg from '../assets/hero-bg.jpeg';
 
 export const HeroSection = ({ onExploreClick }) => {
   return (
