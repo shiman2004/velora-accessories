@@ -71,12 +71,59 @@
   max-width: 280px;
 }
 
-@media (max-width: 860px) {
-  .value-props-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
+@media (max-width: 768px) {
   .value-props-section {
-    padding: 32px 0;
+    padding: 20px 0;
+  }
+  .value-props-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .value-prop-card {
+    padding: 4px 2px;
+  }
+  .value-prop-icon-wrap {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 8px;
+  }
+  .luxury-icon {
+    width: 17px;
+    height: 17px;
+  }
+  .value-prop-title {
+    font-size: 0.78rem;
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+  .value-prop-subtitle {
+    font-size: 0.64rem;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .value-props-section {
+    padding: 16px 0;
+  }
+  .value-props-grid {
+    gap: 6px;
+  }
+  .value-prop-icon-wrap {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 6px;
+  }
+  .luxury-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .value-prop-title {
+    font-size: 0.7rem;
+    letter-spacing: -0.2px;
+  }
+  .value-prop-subtitle {
+    font-size: 0.58rem;
+    line-height: 1.25;
   }
 }
