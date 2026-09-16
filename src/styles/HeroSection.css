@@ -1,10 +1,10 @@
 /* ==========================================================================
-   Hero Section Styles (Luxury Frosted Editorial Card Theme)
+   Hero Section Styles (Crystal Clear Luxury Background & Refined Buttons)
    ========================================================================== */
 
 .hero-section.full-bg-hero {
   position: relative;
-  min-height: clamp(500px, 75vh, 640px);
+  min-height: clamp(480px, 72vh, 640px);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -12,7 +12,7 @@
   background-color: #f7f3eb;
 }
 
-/* 1. Full Background Image Layer (100% Sharp & Unblurred) */
+/* 1. Full Background Image Layer (100% Sharp & Clear) */
 .hero-bg-layer {
   position: absolute;
   top: 0;
@@ -25,14 +25,18 @@
   z-index: 1;
 }
 
-/* 2. Soft Ambient Tint */
+/* 2. Soft Translucent Gradient (No Blur, Maximum Image Clarity) */
 .hero-gradient-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 80% 50%, transparent 40%, rgba(247, 243, 235, 0.4) 100%);
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.75) 0%,
+      rgba(255, 255, 255, 0.5) 42%,
+      rgba(255, 255, 255, 0.12) 75%,
+      transparent 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -42,22 +46,14 @@
   position: relative;
   z-index: 3;
   width: 100%;
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
-/* Luxury Frosted Glass Editorial Card */
 .hero-content {
-  max-width: 520px;
+  max-width: 580px;
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  border-radius: 8px;
-  padding: 36px 32px;
-  box-shadow: 0 16px 40px rgba(12, 23, 38, 0.08);
 }
 
 /* Badge */
@@ -65,16 +61,17 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--color-gold-light);
+  background-color: rgba(255, 255, 255, 0.92);
   color: var(--color-gold-hover);
   padding: 5px 12px;
   border-radius: 20px;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 2px;
   width: fit-content;
   margin-bottom: 16px;
-  border: 1px solid rgba(197, 160, 89, 0.3);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .badge-dot {
@@ -88,12 +85,13 @@
 /* Title */
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 500;
-  line-height: 1.18;
+  line-height: 1.15;
   color: var(--color-text-main);
   margin-bottom: 14px;
   letter-spacing: -0.5px;
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.9);
 }
 
 .hero-title-italic {
@@ -105,11 +103,13 @@
 
 /* Subtitle */
 .hero-subtitle {
-  font-size: 0.94rem;
+  font-size: 0.98rem;
   line-height: 1.62;
-  color: var(--color-text-body);
-  margin-bottom: 24px;
+  color: #2e2922;
+  margin-bottom: 28px;
+  max-width: 520px;
   font-weight: 400;
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.9);
 }
 
 /* CTA Group */
@@ -117,6 +117,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 28px;
   flex-wrap: wrap;
 }
 
@@ -126,17 +127,17 @@
   justify-content: center;
   background-color: var(--color-navy-bar);
   color: #ffffff;
-  padding: 12px 24px;
-  font-size: 0.78rem;
+  padding: 11px 20px;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   border: 1px solid var(--color-navy-bar);
-  border-radius: 3px;
+  border-radius: 4px;
   transition: all 0.25s ease;
   box-shadow: 0 4px 14px rgba(12, 23, 38, 0.15);
-  min-height: 44px;
-  flex: 1 1 auto;
+  min-height: 42px;
+  box-sizing: border-box;
 }
 
 .btn-primary-hero:hover {
@@ -153,23 +154,54 @@
   justify-content: center;
   background-color: #ffffff;
   color: var(--color-text-main);
-  padding: 12px 22px;
-  font-size: 0.78rem;
+  padding: 11px 18px;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   border: 1px solid #c2b8a8;
-  border-radius: 3px;
+  border-radius: 4px;
   transition: all 0.25s ease;
-  min-height: 44px;
-  flex: 1 1 auto;
+  min-height: 42px;
+  box-sizing: border-box;
 }
 
 .btn-secondary-hero:hover {
+  background-color: #ffffff;
   border-color: var(--color-gold);
   color: var(--color-gold-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Minimalist Perks */
+.hero-perks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(197, 160, 89, 0.3);
+  flex-wrap: wrap;
+}
+
+.perk-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.perk-svg-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.perk-text {
+  font-size: 0.8rem;
+  color: #3b3327;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 /* ==========================================================================
@@ -180,78 +212,126 @@
   .hero-section.full-bg-hero {
     min-height: 480px;
   }
-  
+
   .hero-bg-layer {
     background-position: center center;
   }
 
+  .hero-gradient-overlay {
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.78) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.2) 100%);
+  }
+
   .hero-content {
-    margin: 0 auto;
-    text-align: center;
+    max-width: 100%;
     align-items: center;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-cta-group {
     justify-content: center;
-    width: 100%;
+  }
+
+  .hero-perks {
+    justify-content: center;
   }
 }
 
 @media (max-width: 576px) {
   .hero-section.full-bg-hero {
     min-height: auto;
-    padding: 24px 0;
+    padding: 24px 0 28px;
   }
 
   .hero-bg-layer {
-    background-position: center center;
+    background-position: 50% 20%;
+  }
+
+  .hero-gradient-overlay {
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.72) 0%,
+        rgba(255, 255, 255, 0.42) 48%,
+        rgba(255, 255, 255, 0.15) 100%);
   }
 
   .hero-container {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .hero-content {
-    max-width: 100%;
-    padding: 24px 18px 20px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 8px 24px rgba(12, 23, 38, 0.1);
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   .hero-badge {
-    margin-bottom: 10px;
-    font-size: 0.62rem;
+    margin-bottom: 12px;
+    font-size: 0.65rem;
     padding: 4px 10px;
   }
 
   .hero-title {
-    font-size: 1.8rem;
-    line-height: 1.2;
+    font-size: 1.85rem;
+    line-height: 1.18;
     margin-bottom: 10px;
   }
 
   .hero-subtitle {
-    font-size: 0.84rem;
+    font-size: 0.86rem;
     line-height: 1.5;
     margin-bottom: 18px;
   }
 
+  /* Compact, perfectly proportioned side-by-side buttons on mobile */
   .hero-cta-group {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
     width: 100%;
-    gap: 10px;
+    margin-bottom: 18px;
   }
 
-  .btn-primary-hero, 
+  .btn-primary-hero,
   .btn-secondary-hero {
-    width: 100%;
-    padding: 11px 16px;
-    font-size: 0.74rem;
-    min-height: 40px;
+    flex: 1 1 0;
+    max-width: 175px;
+    padding: 10px 6px;
+    font-size: 0.67rem;
+    letter-spacing: 0.3px;
+    min-height: 38px;
     border-radius: 4px;
-    letter-spacing: 1px;
+    white-space: nowrap;
     text-align: center;
+  }
+
+  .btn-secondary-hero svg {
+    display: none;
+    /* Hide icon on narrow mobile to keep text clean and perfectly centered */
+  }
+
+  .hero-perks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 12px;
+  }
+
+  .perk-text {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .btn-primary-hero,
+  .btn-secondary-hero {
+    font-size: 0.65rem;
+    padding: 8px 4px;
+    max-width: 145px;
   }
 }
