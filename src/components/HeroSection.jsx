@@ -20,7 +20,7 @@ export const HeroSection = ({ onExploreClick }) => {
         <div className="hero-content">
           <div className="hero-badge">
             <span className="badge-dot"></span>
-            <span>VELORA BOUTIQUE • COLOMBO</span>
+            <span>VELORA ACCESSORIES • BOUTIQUE</span>
           </div>
 
           <h1 className="hero-title">
@@ -42,12 +42,17 @@ export const HeroSection = ({ onExploreClick }) => {
             </button>
 
             <a 
-              href="https://wa.me/94771155641?text=Hello%20Velora%20Accessories!%20I%20would%20like%20to%20place%20a%20pre-order%20for%20an%20item." 
+              href="https://instagram.com/_velora_.accessories" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn-secondary-hero"
             >
-              ORDER VIA WHATSAPP
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginRight: '6px' }}>
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              ORDER VIA INSTAGRAM
             </a>
           </div>
 
@@ -73,10 +78,11 @@ export const HeroSection = ({ onExploreClick }) => {
 
             <div className="perk-item">
               <svg className="perk-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
-              <span className="perk-text">Colombo Boutique</span>
+              <span className="perk-text">Direct Instagram DM</span>
             </div>
           </div>
         </div>

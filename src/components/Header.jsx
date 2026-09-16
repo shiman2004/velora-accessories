@@ -22,17 +22,15 @@ export const Header = ({
           <div className="marquee-content">
             <span className="marquee-item">✦ Standard delivery available islandwide (Sri Lanka) & worldwide</span>
             <span className="marquee-item">✦ Pre-orders only</span>
-            <span className="marquee-item">✦ WhatsApp Inquiries: <a href="https://wa.me/94771155641" target="_blank" rel="noopener noreferrer">+94 77 115 5641</a></span>
-            <span className="marquee-item">✦ Follow Us on Instagram: <a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">@_velora_.accessories</a></span>
-            <span className="marquee-item">✦ Velora Boutique Colombo</span>
+            <span className="marquee-item">✦ Orders & Inquiries on Instagram: <a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">@_velora_.accessories</a></span>
+            <span className="marquee-item">✦ Velora Accessories Official Boutique</span>
           </div>
           {/* Duplicate for infinite seamless smooth loop */}
           <div className="marquee-content" aria-hidden="true">
             <span className="marquee-item">✦ Standard delivery available islandwide (Sri Lanka) & worldwide</span>
             <span className="marquee-item">✦ Pre-orders only</span>
-            <span className="marquee-item">✦ WhatsApp Inquiries: <a href="https://wa.me/94771155641" target="_blank" rel="noopener noreferrer">+94 77 115 5641</a></span>
-            <span className="marquee-item">✦ Follow Us on Instagram: <a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">@_velora_.accessories</a></span>
-            <span className="marquee-item">✦ Velora Boutique Colombo</span>
+            <span className="marquee-item">✦ Orders & Inquiries on Instagram: <a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">@_velora_.accessories</a></span>
+            <span className="marquee-item">✦ Velora Accessories Official Boutique</span>
           </div>
         </div>
       </div>
@@ -40,34 +38,32 @@ export const Header = ({
       {/* 2. Main Branding & Upper Navigation Bar */}
       <div className="main-header">
         <div className="container header-inner">
-          {/* Left: Contact, Boutique Location & Socials */}
+          {/* Left: Instagram DM & Service Info */}
           <div className="header-left">
-            <a href="https://wa.me/94771155641?text=Hello%20Velora%20Accessories,%20I%20would%20like%20to%20inquire%20about%20your%20collection." 
+            <a href="https://instagram.com/_velora_.accessories" 
                target="_blank" 
                rel="noopener noreferrer" 
-               className="header-contact-item"
-               title="WhatsApp Inquiries">
+               className="header-contact-item ig-link"
+               title="Instagram Direct Message">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
-              <span>+94 77 115 5641</span>
-            </a>
-            
-            <span className="header-divider"></span>
-            
-            <a href="#boutique-info" className="header-contact-item" title="Boutique Location">
-              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              <span>Colombo</span>
-            </a>
-
-            <span className="header-divider"></span>
-
-            <a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer" className="header-contact-item ig-link">
               <span>@_velora_.accessories</span>
             </a>
+            
+            <span className="header-divider"></span>
+            
+            <span className="header-contact-item" title="Delivery Info">
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+              <span>Island-wide Delivery</span>
+            </span>
           </div>
 
           {/* Center: Official Velora Script Logo */}
