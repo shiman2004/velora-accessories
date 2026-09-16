@@ -9,10 +9,19 @@ const supabaseAnonKey =
 export const isSupabaseConfigured = Boolean(
   supabaseUrl && 
   supabaseAnonKey && 
+  typeof supabaseUrl === 'string' &&
+  supabaseUrl.startsWith('http') &&
   supabaseUrl !== 'https://your-project.supabase.co' &&
   supabaseAnonKey !== 'your-anon-key'
 );
 
-export const supabase = isSupabaseConfigured
-  ? createClient(supabaseUrl, supabaseAnonKey)
-  : null;
+let client = null;
+if (isSupabaseConfigured) {
+  try {
+    client = createClient(supabaseUrl, supabaseAnonKey);
+  } catch (err) {
+    console.warn('Failed to initialize Supabase client:', err);
+  }
+}
+
+export const supabase = client;

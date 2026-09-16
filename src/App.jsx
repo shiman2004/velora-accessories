@@ -13,7 +13,7 @@ import { useProducts } from './hooks/useProducts';
 import './styles/App.css';
 
 function App() {
-  const { products, updateProduct, addProduct, deleteProduct, toggleAvailability } = useProducts();
+  const { products, updateProduct, addProduct, deleteProduct, toggleAvailability, isUsingSupabase } = useProducts();
   const [currentView, setCurrentView] = useState('store'); // 'store' | 'admin'
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');

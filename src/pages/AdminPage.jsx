@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../styles/AdminPage.css';
 
 export const AdminPage = ({ 
-  products, 
+  products = [], 
   onBackToStore, 
   onUpdateProduct, 
   onAddProduct, 

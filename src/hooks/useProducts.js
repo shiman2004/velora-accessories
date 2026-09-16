@@ -5,7 +5,7 @@ import { supabase, isSupabaseConfigured } from '../supabaseClient';
 const DATA_VERSION = 'v2_luxury';
 
 export const useProducts = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(initialProducts);
   const [loading, setLoading] = useState(true);
   const [isUsingSupabase, setIsUsingSupabase] = useState(isSupabaseConfigured);
 
