@@ -1,0 +1,351 @@
+/* ==========================================================================
+   Header Component Styles (Luxury Editorial Theme)
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: var(--color-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* 1. Top Announcement Bar */
+.announcement-bar {
+  background-color: var(--color-navy-bar);
+  color: #f1f3f5;
+  font-size: 0.78rem;
+  letter-spacing: 0.8px;
+  padding: 8px 0;
+  font-weight: 400;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.announcement-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.learn-more-link {
+  color: #e5c378;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-left: 6px;
+  transition: color 0.2s ease;
+}
+
+.learn-more-link:hover {
+  color: #fff;
+}
+
+.announcement-tagline {
+  color: #d1d5db;
+  font-weight: 500;
+}
+
+/* 2. Main Header Bar */
+.main-header {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+  background: #ffffff;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Left Section */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.82rem;
+  color: var(--color-text-body);
+  font-weight: 500;
+  white-space: nowrap;
+  flex: 1 1 auto;
+}
+
+.header-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.header-contact-item span {
+  white-space: nowrap;
+}
+
+.header-contact-item:hover {
+  color: var(--color-gold);
+}
+
+.header-contact-item .icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.header-divider {
+  width: 1px;
+  height: 14px;
+  background-color: var(--color-border);
+  flex-shrink: 0;
+}
+
+.ig-link {
+  font-weight: 500;
+  color: var(--color-text-body);
+}
+
+.ig-link:hover {
+  color: var(--color-gold);
+}
+
+/* Center Logo */
+.header-logo-container {
+  flex-shrink: 0;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.brand-logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.brand-script {
+  font-family: var(--font-script);
+  font-size: 3.2rem;
+  color: #9e7d3b;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transform: rotate(-3deg);
+  margin-bottom: -4px;
+  display: block;
+  text-shadow: 0 1px 2px rgba(158, 125, 59, 0.15);
+}
+
+.brand-sub {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: #6e6456;
+  text-transform: uppercase;
+  margin-top: -2px;
+}
+
+/* Right Section */
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  flex: 1;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--color-bg-subtle);
+}
+
+.search-wrapper.active .search-input {
+  width: 190px;
+  opacity: 1;
+  pointer-events: auto;
+  margin-right: 6px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.15);
+}
+
+.action-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-main);
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.action-icon-btn:hover {
+  color: var(--color-gold);
+}
+
+.action-icon-btn .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-with-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.badge-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--color-gold);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-badge-btn {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  background-color: var(--color-navy-bar);
+  color: #ffffff;
+  padding: 7px 16px;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+.admin-badge-btn:hover {
+  background-color: var(--color-gold);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  padding: 6px;
+  color: var(--color-text-main);
+}
+
+/* 3. Category Navigation Bar */
+.category-nav-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.category-nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 32px;
+  padding: 12px 0;
+  flex-wrap: wrap;
+}
+
+.category-nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #2b2b2b;
+  position: relative;
+  padding: 6px 2px;
+  transition: color 0.2s ease;
+}
+
+.category-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-gold);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.category-nav-link:hover,
+.category-nav-link.active {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.category-nav-link:hover::after,
+.category-nav-link.active::after {
+  width: 100%;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .header-left {
+    display: none;
+  }
+  .category-nav-list {
+    gap: 18px;
+  }
+  .brand-script {
+    font-size: 2.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    padding: 12px 0;
+  }
+  .brand-script {
+    font-size: 2.3rem;
+  }
+  .brand-sub {
+    font-size: 0.55rem;
+    letter-spacing: 4px;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+  .btn-label {
+    display: none;
+  }
+  .category-nav-bar {
+    display: none;
+  }
+  .category-nav-bar.mobile-open {
+    display: block;
+    padding: 10px 0;
+  }
+  .category-nav-list {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+}

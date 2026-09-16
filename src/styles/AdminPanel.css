@@ -1,0 +1,349 @@
+/* ==========================================================================
+   Admin Panel Styles (Luxury CMS Theme)
+   ========================================================================== */
+
+.admin-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(11, 17, 24, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.admin-panel {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1050px;
+  max-height: 90vh;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-border);
+}
+
+.admin-header {
+  background-color: var(--color-navy-bar);
+  color: #ffffff;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-badge {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  background: var(--color-gold);
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+.admin-header-title h2 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.admin-close-btn {
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.admin-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-content {
+  padding: 24px 28px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-add-product {
+  background-color: var(--color-gold);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-add-product:hover {
+  background-color: var(--color-gold-hover);
+  transform: translateY(-1px);
+}
+
+/* Admin Form Card */
+.admin-form-card {
+  background-color: var(--color-bg-warm);
+  border: 1px solid var(--color-border);
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.admin-form-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+.admin-grid-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 9px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  background-color: #ffffff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.form-action-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-save-item {
+  background-color: var(--color-navy-bar);
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.btn-save-item:hover {
+  background-color: var(--color-gold);
+}
+
+.btn-cancel {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  padding: 10px 18px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+/* Table Container */
+.admin-table-container {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.admin-table th {
+  background-color: var(--color-bg-warm);
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--color-text-body);
+  border-bottom: 1px solid var(--color-border);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.table-thumb-img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.table-tag-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  background-color: var(--color-gold-light);
+  color: var(--color-gold-hover);
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-left: 6px;
+}
+
+.table-sub-desc {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  margin-top: 3px;
+}
+
+.table-cat-pill {
+  font-size: 0.75rem;
+  background-color: var(--color-bg-subtle);
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+.table-stock-btn {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.table-stock-btn.in-stock {
+  background-color: #e8f5e9;
+  color: var(--color-success);
+}
+
+.table-stock-btn.pre-order {
+  background-color: #fef7ec;
+  color: var(--color-preorder);
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-table-edit {
+  background-color: var(--color-navy-bar);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.74rem;
+  border-radius: 3px;
+}
+
+.btn-table-delete {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 6px 12px;
+  font-size: 0.74rem;
+  border-radius: 3px;
+}
+
+.inline-input, .inline-select {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 3px;
+}
+
+.mt-1 {
+  margin-top: 4px;
+}
+
+.btn-table-save {
+  background-color: var(--color-success);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.74rem;
+  border-radius: 3px;
+}
+
+.btn-table-cancel {
+  background-color: #e5e7eb;
+  color: var(--color-text-main);
+  padding: 6px 12px;
+  font-size: 0.74rem;
+  border-radius: 3px;
+}
+
+/* Stats Bar */
+.admin-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: auto;
+}
+
+.stat-box {
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  padding: 14px 18px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.stat-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.in-stock-text {
+  color: var(--color-success);
+}
+
+.preorder-text {
+  color: var(--color-preorder);
+}

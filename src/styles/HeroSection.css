@@ -1,0 +1,286 @@
+/* ==========================================================================
+   Hero Section Styles (Luxury Minimalist Theme - No Childish Emojis)
+   ========================================================================== */
+
+.hero-section {
+  background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);
+  padding: 48px 0 64px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 56px;
+}
+
+/* Left Hero Content */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-gold-light);
+  color: var(--color-gold-hover);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  width: fit-content;
+  margin-bottom: 24px;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--color-gold);
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 3.6rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-text-main);
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.hero-title-italic {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--color-gold-hover);
+  font-weight: 400;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-body);
+  margin-bottom: 36px;
+  max-width: 520px;
+  font-weight: 400;
+}
+
+/* CTA Group */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.btn-primary-hero {
+  background-color: var(--color-navy-bar);
+  color: #ffffff;
+  padding: 16px 32px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid var(--color-navy-bar);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(12, 23, 38, 0.15);
+}
+
+.btn-primary-hero:hover {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(197, 160, 89, 0.3);
+}
+
+.btn-secondary-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-text-main);
+  padding: 16px 32px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid #c2b8a8;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-hero:hover {
+  background-color: #ffffff;
+  border-color: var(--color-gold);
+  color: var(--color-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Luxury Minimalist Perks */
+.hero-perks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.perk-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.perk-svg-icon {
+  width: 17px;
+  height: 17px;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.perk-text {
+  font-size: 0.82rem;
+  color: var(--color-text-body);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Right Media */
+.hero-media-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 540px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-image-card:hover .hero-image {
+  transform: scale(1.03);
+}
+
+/* Floating Clean Badges */
+.floating-hero-tag {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 10px 18px;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  animation: pulseSubtle 4s infinite ease-in-out;
+}
+
+.top-tag {
+  top: 24px;
+  left: -20px;
+}
+
+.bottom-tag {
+  bottom: 24px;
+  right: -20px;
+}
+
+.tag-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+.tag-location-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gold);
+}
+
+.tag-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.2;
+}
+
+.tag-sub {
+  font-size: 0.68rem;
+  color: var(--color-gold-hover);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .hero-content {
+    align-items: center;
+  }
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-cta-group {
+    justify-content: center;
+  }
+  .hero-perks {
+    justify-content: center;
+  }
+  .top-tag {
+    left: 10px;
+  }
+  .bottom-tag {
+    right: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 32px 0 48px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-image-card {
+    height: 380px;
+  }
+  .btn-primary-hero, .btn-secondary-hero {
+    width: 100%;
+    text-align: center;
+  }
+}

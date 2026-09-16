@@ -1,0 +1,224 @@
+/* ==========================================================================
+   Product Card Styles (Luxury Jeweller Theme)
+   ========================================================================== */
+
+.luxury-product-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.luxury-product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  border-color: #dfd8cc;
+}
+
+/* Media Box */
+.product-media-box {
+  position: relative;
+  width: 100%;
+  padding-top: 110%; /* Elegant aspect ratio for jewelry */
+  background-color: #f8f6f2;
+  overflow: hidden;
+}
+
+.product-main-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-product-card:hover .product-main-img {
+  transform: scale(1.06);
+}
+
+/* Top Tag Badge */
+.product-top-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(12, 23, 38, 0.9);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+/* Wishlist Heart Button */
+.card-wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a4a4a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  transition: all 0.2s ease;
+}
+
+.card-wishlist-btn:hover {
+  background-color: #ffffff;
+  transform: scale(1.1);
+}
+
+.card-wishlist-btn .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Hover Quick View Overlay */
+.product-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.luxury-product-card:hover .product-card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quick-view-btn {
+  background-color: #ffffff;
+  color: var(--color-text-main);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  padding: 8px 18px;
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.quick-view-btn:hover {
+  background-color: var(--color-navy-bar);
+  color: #ffffff;
+}
+
+/* Product Info Box */
+.product-details-box {
+  padding: 20px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #ffffff;
+}
+
+.product-meta-category {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-gold-hover);
+  margin-bottom: 6px;
+}
+
+.product-item-title {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+  line-height: 1.35;
+  margin-bottom: 12px;
+  min-height: 2.7em;
+}
+
+.product-price-stock-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.product-item-price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  letter-spacing: -0.2px;
+}
+
+.stock-status-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.stock-status-badge.in-stock {
+  color: var(--color-success);
+  background-color: #e8f5e9;
+}
+
+.stock-status-badge.pre-order {
+  color: var(--color-preorder);
+  background-color: #fef7ec;
+}
+
+/* Card WhatsApp Action */
+.card-order-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #faf8f5;
+  color: var(--color-text-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 10px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--color-border);
+  transition: all 0.25s ease;
+  width: 100%;
+  margin-top: auto;
+}
+
+.card-order-action-btn .wa-icon {
+  width: 15px;
+  height: 15px;
+  color: #25d366;
+}
+
+.card-order-action-btn:hover {
+  background-color: var(--color-navy-bar);
+  color: #ffffff;
+  border-color: var(--color-navy-bar);
+}
+
+.card-order-action-btn:hover .wa-icon {
+  color: #ffffff;
+}

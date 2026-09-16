@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Product Grid Styles
+   ========================================================================== */
+
+.product-grid-container {
+  width: 100%;
+  margin-bottom: 64px;
+}
+
+.luxury-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* Empty State */
+.product-grid-empty {
+  text-align: center;
+  padding: 64px 20px;
+  background-color: var(--color-bg-subtle);
+  border-radius: 6px;
+  border: 1px dashed var(--color-border);
+  margin-bottom: 64px;
+}
+
+.empty-icon-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: var(--color-bg-warm);
+  border: 1px solid var(--color-border);
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.empty-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-text-main);
+  margin-bottom: 6px;
+}
+
+.empty-subtitle {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 1200px) {
+  .luxury-product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .luxury-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .luxury-product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

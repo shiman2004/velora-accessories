@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Velora Accessories - Luxury Design System (Inspired by Dinidu Reference)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Alex+Brush&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Brand Palette */
+  --color-primary: #121820;
+  --color-primary-dark: #0b1118;
+  --color-navy-bar: #0c1726;
+  
+  --color-gold: #c5a059;
+  --color-gold-hover: #b08a44;
+  --color-gold-light: #f5eedf;
+  --color-gold-muted: #d9c49d;
+  --color-gold-gradient: linear-gradient(135deg, #c5a059 0%, #e2c992 50%, #b08a44 100%);
+  
+  --color-bg: #ffffff;
+  --color-bg-subtle: #fcfbfa;
+  --color-bg-warm: #f6f3ee;
+  
+  --color-text-main: #141414;
+  --color-text-body: #4a4a4a;
+  --color-text-muted: #7e7e7e;
+  --color-text-light: #ffffff;
+  
+  --color-border: #ece8e1;
+  --color-border-dark: #2a3340;
+  
+  --color-success: #2e7d32;
+  --color-preorder: #b08a44;
+  
+  /* Typography */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Alex Brush', cursive;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+  --shadow-gold: 0 6px 20px rgba(197, 160, 89, 0.25);
+  
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-fast: all 0.15s ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f6f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d8c49e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Common Layout Container */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* Badges */
+.badge-gold {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-gold-hover);
+  background: var(--color-gold-light);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
