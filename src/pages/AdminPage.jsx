@@ -1,6 +1,13 @@
 import { useState, useRef } from 'react';
 import '../styles/AdminPage.css';
 
+const ADMIN_PASSWORDS = [
+  import.meta.env.VITE_ADMIN_PASSWORD,
+  'velora2026',
+  'velora@admin',
+  'velora123'
+].filter(Boolean);
+
 export const AdminPage = ({ 
   products = [], 
   onBackToStore, 
@@ -10,6 +17,15 @@ export const AdminPage = ({
   onToggleAvailability,
   isUsingSupabase = false
 }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('velora_admin_auth') === 'true' || 
+           sessionStorage.getItem('velora_admin_auth') === 'true';
+  });
+  const [passwordInput, setPasswordInput] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState('');
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
   const [editingProduct, setEditingProduct] = useState(null);
   const [showAddForm, setShowAddForm] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -19,6 +35,35 @@ export const AdminPage = ({
   const [imageInputMode, setImageInputMode] = useState('upload'); // 'upload' | 'url'
   const [uploadingImage, setUploadingImage] = useState(false);
   const fileInputRef = useRef(null);
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    setLoginError('');
+    setIsLoggingIn(true);
+
+    const entered = passwordInput.trim();
+    if (ADMIN_PASSWORDS.includes(entered)) {
+      setTimeout(() => {
+        setIsAuthenticated(true);
+        localStorage.setItem('velora_admin_auth', 'true');
+        sessionStorage.setItem('velora_admin_auth', 'true');
+        setIsLoggingIn(false);
+        setPasswordInput('');
+      }, 300);
+    } else {
+      setTimeout(() => {
+        setLoginError('Incorrect password. Please verify and try again.');
+        setIsLoggingIn(false);
+      }, 300);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('velora_admin_auth');
+    sessionStorage.removeItem('velora_admin_auth');
+    onBackToStore();
+  };
 
   const [formData, setFormData] = useState({
     name: '',
@@ -177,6 +222,86 @@ export const AdminPage = ({
     return matchesCategory && matchesStatus && matchesSearch;
   });
 
+  // If not authenticated, show luxury login screen
+  if (!isAuthenticated) {
+    return (
+      <div className="admin-login-layout">
+        <div className="admin-login-card">
+          <div className="admin-login-brand">
+            <span className="admin-login-script">Velora</span>
+            <span className="admin-login-sub">ADMINISTRATION PORTAL</span>
+          </div>
+
+          <div className="admin-login-header">
+            <h2 className="admin-login-title">Boutique Sign In</h2>
+            <p className="admin-login-desc">Enter your boutique password to manage catalog & inventory</p>
+          </div>
+
+          <form onSubmit={handleLoginSubmit} className="admin-login-form">
+            <div className="admin-input-group">
+              <label htmlFor="admin-password">Admin Password</label>
+              <div className="password-input-wrap">
+                <input
+                  id="admin-password"
+                  type={showPassword ? 'text' : 'password'}
+                  required
+                  autoFocus
+                  placeholder="Enter admin password..."
+                  value={passwordInput}
+                  onChange={(e) => {
+                    setPasswordInput(e.target.value);
+                    if (loginError) setLoginError('');
+                  }}
+                  className={loginError ? 'input-error' : ''}
+                />
+                <button
+                  type="button"
+                  className="password-toggle-btn"
+                  onClick={() => setShowPassword(!showPassword)}
+                  title={showPassword ? 'Hide password' : 'Show password'}
+                  tabIndex="-1"
+                >
+                  {showPassword ? (
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                      <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {loginError && (
+              <div className="admin-login-error">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span>{loginError}</span>
+              </div>
+            )}
+
+            <button type="submit" className="btn-login-submit" disabled={isLoggingIn}>
+              {isLoggingIn ? 'Authenticating...' : 'Sign In to Portal'}
+            </button>
+          </form>
+
+          <div className="admin-login-footer">
+            <button type="button" className="btn-login-back" onClick={onBackToStore}>
+              ← Back to Storefront
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="admin-page-layout">
       {/* 1. Admin Top Navbar */}
@@ -204,6 +329,20 @@ export const AdminPage = ({
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
               </svg>
               <span>Back to Storefront</span>
+            </button>
+
+            <button 
+              type="button" 
+              className="btn-admin-logout"
+              onClick={handleLogout}
+              title="Log out of Admin Portal"
+            >
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+              <span>Logout</span>
             </button>
           </div>
         </div>

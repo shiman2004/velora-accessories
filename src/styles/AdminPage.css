@@ -785,3 +785,201 @@
     font-size: 0.72rem;
   }
 }
+
+/* ==========================================================================
+   Admin Authentication / Login Screen
+   ========================================================================== */
+
+.admin-login-layout {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: radial-gradient(circle at 50% 20%, #172437 0%, #0c1726 100%);
+  position: relative;
+}
+
+.admin-login-layout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.admin-login-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 12px;
+  padding: 40px 36px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  text-align: center;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.admin-login-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-login-script {
+  font-family: var(--font-script);
+  font-size: 3.2rem;
+  color: #c5a059;
+  line-height: 1;
+}
+
+.admin-login-sub {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #6b7280;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.admin-login-header {
+  margin-bottom: 28px;
+}
+
+.admin-login-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--color-navy-bar);
+  margin-bottom: 6px;
+}
+
+.admin-login-desc {
+  font-size: 0.82rem;
+  color: #6b7280;
+  line-height: 1.45;
+}
+
+.admin-login-form {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.password-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrap input {
+  width: 100%;
+  padding-right: 44px;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.password-toggle-btn:hover {
+  color: var(--color-navy-bar);
+}
+
+.input-error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.admin-login-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.btn-login-submit {
+  width: 100%;
+  background-color: var(--color-navy-bar);
+  color: #ffffff;
+  padding: 13px 20px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  border: 1px solid var(--color-navy-bar);
+  transition: all 0.25s ease;
+  margin-top: 4px;
+}
+
+.btn-login-submit:hover:not(:disabled) {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+}
+
+.btn-login-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.admin-login-footer {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.btn-login-back {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.btn-login-back:hover {
+  color: var(--color-navy-bar);
+}
+
+.btn-admin-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.btn-admin-logout:hover {
+  background-color: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+}
