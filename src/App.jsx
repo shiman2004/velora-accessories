@@ -4,7 +4,6 @@ import { HeroSection } from './components/HeroSection';
 import { ValueProps } from './components/ValueProps';
 import { CategoryFilter } from './components/CategoryFilter';
 import { ProductGrid } from './components/ProductGrid';
-import { InstagramSection } from './components/InstagramSection';
 import { ProductModal } from './components/ProductModal';
 import { WishlistDrawer } from './components/WishlistDrawer';
 import { Footer } from './components/Footer';
@@ -172,15 +171,9 @@ function App() {
             onToggleWishlist={handleToggleWishlist}
           />
         </div>
-
-        {/* 5. Official Instagram Showcase */}
-        <InstagramSection 
-          onSelectProduct={(product) => setSelectedProduct(product)}
-          products={products}
-        />
       </main>
 
-      {/* 6. Footer */}
+      {/* 5. Footer */}
       <Footer />
 
       {/* Toast Notification */}

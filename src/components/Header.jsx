@@ -157,15 +157,6 @@ export const Header = ({
                 ABOUT US
               </a>
             </li>
-            <li className="category-nav-item">
-              <a 
-                href="#instagram-section" 
-                className="category-nav-link"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                INSTAGRAM
-              </a>
-            </li>
           </ul>
         </div>
       </nav>
