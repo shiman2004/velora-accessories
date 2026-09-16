@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Product Card Styles (Luxury Jeweller Theme)
+   Product Card Styles (Mobile Responsive & Luxury Jeweller Theme)
    ========================================================================== */
 
 .luxury-product-card {
@@ -12,11 +12,12 @@
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   position: relative;
+  width: 100%;
 }
 
 .luxury-product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.07);
   border-color: #dfd8cc;
 }
 
@@ -24,7 +25,7 @@
 .product-media-box {
   position: relative;
   width: 100%;
-  padding-top: 110%; /* Elegant aspect ratio for jewelry */
+  padding-top: 112%; /* Elegant aspect ratio */
   background-color: #f8f6f2;
   overflow: hidden;
 }
@@ -40,21 +41,21 @@
 }
 
 .luxury-product-card:hover .product-main-img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 /* Top Tag Badge */
 .product-top-badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   background-color: rgba(12, 23, 38, 0.9);
   color: #ffffff;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 2px;
   z-index: 2;
 }
@@ -62,9 +63,9 @@
 /* Wishlist Heart Button */
 .card-wishlist-btn {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background-color: rgba(255, 255, 255, 0.9);
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(4px);
   width: 34px;
   height: 34px;
@@ -94,13 +95,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 12px;
+  padding: 10px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
   display: flex;
   justify-content: center;
   opacity: 0;
-  transform: translateY(8px);
-  transition: all 0.3s ease;
+  transform: translateY(6px);
+  transition: all 0.25s ease;
   z-index: 2;
 }
 
@@ -112,13 +113,12 @@
 .quick-view-btn {
   background-color: #ffffff;
   color: var(--color-text-main);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 1.5px;
-  padding: 8px 18px;
+  letter-spacing: 1.2px;
+  padding: 7px 16px;
   border-radius: 2px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease;
 }
 
 .quick-view-btn:hover {
@@ -128,7 +128,7 @@
 
 /* Product Info Box */
 .product-details-box {
-  padding: 20px 18px 18px;
+  padding: 16px 14px 14px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -136,46 +136,48 @@
 }
 
 .product-meta-category {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   color: var(--color-gold-hover);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .product-item-title {
   font-family: var(--font-serif);
-  font-size: 1.12rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--color-text-main);
-  line-height: 1.35;
-  margin-bottom: 12px;
-  min-height: 2.7em;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  min-height: 2.6em;
 }
 
 .product-price-stock-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--color-border);
+  gap: 6px;
 }
 
 .product-item-price {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--color-text-main);
   letter-spacing: -0.2px;
 }
 
 .stock-status-badge {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 3px 8px;
+  letter-spacing: 0.3px;
+  padding: 2px 7px;
   border-radius: 2px;
+  white-space: nowrap;
 }
 
 .stock-status-badge.in-stock {
@@ -193,24 +195,26 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   background-color: #faf8f5;
   color: var(--color-text-main);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 10px 14px;
+  letter-spacing: 0.3px;
+  padding: 9px 12px;
   border-radius: 3px;
   border: 1px solid var(--color-border);
   transition: all 0.25s ease;
   width: 100%;
   margin-top: auto;
+  min-height: 38px;
 }
 
 .card-order-action-btn .wa-icon {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   color: #25d366;
+  flex-shrink: 0;
 }
 
 .card-order-action-btn:hover {
@@ -221,4 +225,27 @@
 
 .card-order-action-btn:hover .wa-icon {
   color: #ffffff;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+  .product-details-box {
+    padding: 12px 10px 10px;
+  }
+  .product-item-title {
+    font-size: 0.92rem;
+    min-height: 2.4em;
+    margin-bottom: 6px;
+  }
+  .product-item-price {
+    font-size: 0.95rem;
+  }
+  .stock-status-badge {
+    font-size: 0.6rem;
+    padding: 2px 5px;
+  }
+  .card-order-action-btn {
+    font-size: 0.7rem;
+    padding: 7px 6px;
+  }
 }
