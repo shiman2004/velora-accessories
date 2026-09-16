@@ -16,14 +16,24 @@ export const Header = ({
 
   return (
     <header className="site-header">
-      {/* 1. Top Announcement Bar (Matches reference navy header) */}
+      {/* 1. Top Announcement Bar - Seamless Single-Line Auto-Loop Marquee */}
       <div className="announcement-bar">
-        <div className="container announcement-content">
-          <span>
-            Standard delivery available islandwide (Sri Lanka) & worldwide. 
-            <a href="#instagram-section" className="learn-more-link"> Follow Us on Instagram</a>
-          </span>
-          <span className="announcement-tagline">• Pre-orders only</span>
+        <div className="announcement-marquee-track">
+          <div className="marquee-content">
+            <span className="marquee-item">✦ Standard delivery available islandwide (Sri Lanka) & worldwide</span>
+            <span className="marquee-item">✦ Pre-orders only</span>
+            <span className="marquee-item">✦ WhatsApp Inquiries: <a href="https://wa.me/94771155641" target="_blank" rel="noopener noreferrer">+94 77 115 5641</a></span>
+            <span className="marquee-item">✦ Follow Us on Instagram: <a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">@_velora_.accessories</a></span>
+            <span className="marquee-item">✦ Velora Boutique Colombo</span>
+          </div>
+          {/* Duplicate for infinite seamless smooth loop */}
+          <div className="marquee-content" aria-hidden="true">
+            <span className="marquee-item">✦ Standard delivery available islandwide (Sri Lanka) & worldwide</span>
+            <span className="marquee-item">✦ Pre-orders only</span>
+            <span className="marquee-item">✦ WhatsApp Inquiries: <a href="https://wa.me/94771155641" target="_blank" rel="noopener noreferrer">+94 77 115 5641</a></span>
+            <span className="marquee-item">✦ Follow Us on Instagram: <a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">@_velora_.accessories</a></span>
+            <span className="marquee-item">✦ Velora Boutique Colombo</span>
+          </div>
         </div>
       </div>
 

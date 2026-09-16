@@ -17,7 +17,7 @@ export const HeroSection = ({ onExploreClick }) => {
           </h1>
 
           <p className="hero-subtitle">
-            Curated modern jewellery, timeless 18K gold plated accessories, and bespoke pre-order essentials designed to elevate your everyday elegance.
+            Curated modern jewellery, timeless bespoke accessories, and handcrafted pre-order essentials designed to elevate your everyday elegance.
           </p>
 
           <div className="hero-cta-group">
