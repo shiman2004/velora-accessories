@@ -52,23 +52,8 @@ export const useProducts = () => {
         return;
       }
 
-      // If Supabase table is empty on first setup, automatically seed the initial products
-      if (!data || data.length === 0) {
-        console.log('Seeding initial products to Supabase...');
-        const seedData = initialProducts.map(({ id, ...rest }) => rest);
-        const { data: inserted, error: insertError } = await supabase
-          .from('products')
-          .insert(seedData)
-          .select();
-
-        if (!insertError && inserted) {
-          setProducts(inserted);
-        } else {
-          setProducts(initialProducts);
-        }
-      } else {
-        setProducts(data);
-      }
+      // Set products exactly as returned from Supabase without auto-re-seeding
+      setProducts(data || []);
       setIsUsingSupabase(true);
     } catch (err) {
       console.warn('Supabase connection failed, using local storage:', err);
@@ -109,7 +94,7 @@ export const useProducts = () => {
   const updateProduct = async (id, updatedData) => {
     // Optimistic local update
     const updated = products.map(p => 
-      p.id === id ? { ...p, ...updatedData } : p
+      String(p.id) === String(id) ? { ...p, ...updatedData } : p
     );
     setProducts(updated);
     localStorage.setItem('veloraProducts', JSON.stringify(updated));
@@ -122,7 +107,8 @@ export const useProducts = () => {
           .eq('id', id);
 
         if (error) {
-          console.error('Failed to update product in Supabase:', error);
+          console.error('Failed to update product in Supabase:', error.message);
+          alert('Supabase Update Error: ' + error.message);
         }
       } catch (err) {
         console.error('Supabase update exception:', err);
@@ -145,6 +131,9 @@ export const useProducts = () => {
           setProducts(updated);
           localStorage.setItem('veloraProducts', JSON.stringify(updated));
           return data;
+        } else if (error) {
+          console.error('Failed to add product to Supabase:', error.message);
+          alert('Supabase Add Error: ' + error.message);
         }
       } catch (err) {
         console.error('Supabase insert exception:', err);
@@ -154,7 +143,7 @@ export const useProducts = () => {
     // Local fallback
     const product = {
       ...newProduct,
-      id: Math.max(...products.map(p => p.id), 0) + 1
+      id: Math.max(...products.map(p => Number(p.id) || 0), 0) + 1
     };
     const updated = [...products, product];
     setProducts(updated);
@@ -164,7 +153,7 @@ export const useProducts = () => {
 
   // Delete product
   const deleteProduct = async (id) => {
-    const updated = products.filter(p => p.id !== id);
+    const updated = products.filter(p => String(p.id) !== String(id));
     setProducts(updated);
     localStorage.setItem('veloraProducts', JSON.stringify(updated));
 
@@ -176,7 +165,9 @@ export const useProducts = () => {
           .eq('id', id);
 
         if (error) {
-          console.error('Failed to delete product from Supabase:', error);
+          console.error('Failed to delete product from Supabase:', error.message);
+          alert('Supabase Delete Error: ' + error.message + '\n\nPlease run the SQL snippet in Supabase SQL Editor to allow public deletes.');
+          fetchSupabaseProducts();
         }
       } catch (err) {
         console.error('Supabase delete exception:', err);
