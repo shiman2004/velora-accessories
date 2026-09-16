@@ -324,6 +324,122 @@
   box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.15);
 }
 
+/* Media Upload & Dropzone Section */
+.media-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-mode-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.image-mode-btn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background-color: #f0ece1;
+  color: var(--color-text-body);
+  border: 1px solid var(--color-border);
+  transition: all 0.2s ease;
+}
+
+.image-mode-btn.active {
+  background-color: var(--color-navy-bar);
+  color: #ffffff;
+  border-color: var(--color-navy-bar);
+}
+
+.image-dropzone-box {
+  border: 2px dashed #d8cfbe;
+  border-radius: 6px;
+  padding: 24px 20px;
+  text-align: center;
+  background-color: #fbfaf8;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.image-dropzone-box:hover {
+  border-color: var(--color-gold);
+  background-color: #f7f3eb;
+}
+
+.dropzone-empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropzone-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-bg-warm);
+  border: 1px solid #e0d8cb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+}
+
+.dropzone-main-text {
+  font-size: 0.88rem;
+  color: var(--color-text-main);
+}
+
+.dropzone-sub-text {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.dropzone-preview-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dropzone-preview-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-border);
+}
+
+.dropzone-preview-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.dropzone-success-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+.btn-change-photo {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--color-gold-hover);
+  text-decoration: underline;
+}
+
+.btn-change-photo:hover {
+  color: var(--color-navy-bar);
+}
+
 .image-preview-box {
   display: flex;
   align-items: center;

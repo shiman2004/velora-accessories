@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import '../styles/AdminPage.css';
 
 export const AdminPage = ({ 
@@ -16,6 +16,9 @@ export const AdminPage = ({
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [statusFilter, setStatusFilter] = useState('All');
   const [notification, setNotification] = useState(null);
+  const [imageInputMode, setImageInputMode] = useState('upload'); // 'upload' | 'url'
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const fileInputRef = useRef(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -35,6 +38,58 @@ export const AdminPage = ({
     setTimeout(() => setNotification(null), 3000);
   };
 
+  // Image File Compression & Upload Handler
+  const handleImageFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('Please select a valid image file (JPG, PNG, WEBP).');
+      return;
+    }
+
+    setUploadingImage(true);
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        // Compress image using canvas
+        const canvas = document.createElement('canvas');
+        const MAX_WIDTH = 1000;
+        const MAX_HEIGHT = 1000;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+
+        // Convert to high-quality compressed JPEG data URL
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+        setFormData(prev => ({ ...prev, image: dataUrl }));
+        setUploadingImage(false);
+        triggerNotification('Image uploaded successfully ✨');
+      };
+      img.src = event.target.result;
+    };
+
+    reader.readAsDataURL(file);
+  };
+
   const handleEdit = (product) => {
     setEditingProduct(product);
     setFormData({
@@ -46,6 +101,7 @@ export const AdminPage = ({
       description: product.description || '',
       available: product.available
     });
+    setImageInputMode(product.image?.startsWith('data:') ? 'upload' : 'upload');
     setShowAddForm(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -168,7 +224,7 @@ export const AdminPage = ({
             <span className="admin-eyebrow">DASHBOARD & INVENTORY</span>
             <h1 className="admin-page-title">Catalog Management</h1>
             <p className="admin-page-subtitle">
-              Manage inventory, update prices, add new arrivals, and manage boutique availability.
+              Manage inventory, update prices, upload photos from device, and manage boutique availability.
             </p>
           </div>
 
@@ -211,7 +267,7 @@ export const AdminPage = ({
           </div>
         </div>
 
-        {/* 4. Add / Edit Product Panel */}
+        {/* 4. Add / Edit Product Panel with Media File Upload */}
         {(showAddForm || editingProduct) && (
           <div className="admin-editor-card">
             <div className="editor-card-header">
@@ -267,18 +323,90 @@ export const AdminPage = ({
                   </select>
                 </div>
 
+                {/* Media Image Upload Section */}
                 <div className="admin-input-group full-width">
-                  <label>High-Res Image URL</label>
-                  <input
-                    type="url"
-                    placeholder="https://images.unsplash.com/... or direct image link"
-                    value={formData.image}
-                    onChange={(e) => setFormData({...formData, image: e.target.value})}
-                  />
-                  {formData.image && (
-                    <div className="image-preview-box">
-                      <img src={formData.image} alt="Preview" className="preview-thumb" />
-                      <span className="preview-caption">Live Image Preview</span>
+                  <div className="media-section-header">
+                    <label>Product Media & Photo *</label>
+                    <div className="image-mode-tabs">
+                      <button
+                        type="button"
+                        className={`image-mode-btn ${imageInputMode === 'upload' ? 'active' : ''}`}
+                        onClick={() => setImageInputMode('upload')}
+                      >
+                        📁 Upload from Device
+                      </button>
+                      <button
+                        type="button"
+                        className={`image-mode-btn ${imageInputMode === 'url' ? 'active' : ''}`}
+                        onClick={() => setImageInputMode('url')}
+                      >
+                        🔗 Paste Web Link
+                      </button>
+                    </div>
+                  </div>
+
+                  {imageInputMode === 'upload' ? (
+                    <div 
+                      className="image-dropzone-box"
+                      onClick={() => fileInputRef.current?.click()}
+                    >
+                      <input
+                        type="file"
+                        ref={fileInputRef}
+                        accept="image/*"
+                        style={{ display: 'none' }}
+                        onChange={handleImageFileChange}
+                      />
+                      
+                      {formData.image ? (
+                        <div className="dropzone-preview-content">
+                          <img src={formData.image} alt="Uploaded preview" className="dropzone-preview-img" />
+                          <div className="dropzone-preview-info">
+                            <span className="dropzone-success-text">✓ Photo selected</span>
+                            <button 
+                              type="button" 
+                              className="btn-change-photo"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                fileInputRef.current?.click();
+                              }}
+                            >
+                              Choose Different Photo
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="dropzone-empty-content">
+                          <div className="dropzone-icon-circle">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                              <circle cx="8.5" cy="8.5" r="1.5"/>
+                              <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                          </div>
+                          <p className="dropzone-main-text">
+                            <strong>Click to upload</strong> or drag & drop photo here
+                          </p>
+                          <p className="dropzone-sub-text">
+                            Supports PNG, JPG, JPEG, WEBP from your phone or computer
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div>
+                      <input
+                        type="url"
+                        placeholder="https://images.unsplash.com/... or direct image link"
+                        value={formData.image}
+                        onChange={(e) => setFormData({...formData, image: e.target.value})}
+                      />
+                      {formData.image && (
+                        <div className="image-preview-box">
+                          <img src={formData.image} alt="Preview" className="preview-thumb" />
+                          <span className="preview-caption">Live Image Preview</span>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
@@ -306,8 +434,8 @@ export const AdminPage = ({
               </div>
 
               <div className="editor-actions-row">
-                <button type="submit" className="btn-save-primary">
-                  {editingProduct ? 'Save Changes' : 'Create Accessory'}
+                <button type="submit" className="btn-save-primary" disabled={uploadingImage}>
+                  {uploadingImage ? 'Processing Photo...' : (editingProduct ? 'Save Changes' : 'Create Accessory')}
                 </button>
                 <button type="button" className="btn-cancel-secondary" onClick={handleCancelForm}>
                   Cancel
