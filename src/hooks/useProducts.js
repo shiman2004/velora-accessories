@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-import { initialProducts } from '../data/products';
 import { supabase, isSupabaseConfigured } from '../supabaseClient';
 
 const DATA_VERSION = 'v2_luxury';
