@@ -108,16 +108,6 @@ export const Header = ({
               </div>
             </button>
 
-            {/* Admin Toggle */}
-            <button 
-              type="button" 
-              className="admin-badge-btn" 
-              onClick={onAdminClick}
-              title="Open Admin Management"
-            >
-              <span>Admin</span>
-            </button>
-
             {/* Mobile Hamburger */}
             <button 
               className="mobile-menu-btn"
