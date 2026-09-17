@@ -46,19 +46,19 @@ export const ProductModal = ({ product, onClose, isWishlisted = false, onToggleW
             <div className="modal-specs-list">
               <div className="spec-row">
                 <span className="spec-bullet-dot"></span>
-                <span><strong>Material:</strong> Premium Stainless Steel / Fine Crafted Alloy (Hypoallergenic)</span>
+                <span><strong>Material:</strong> Premium Stainless Steel & Alloy</span>
               </div>
               <div className="spec-row">
                 <span className="spec-bullet-dot"></span>
-                <span><strong>Finish:</strong> Tarnish-Resistant & Long-Lasting Luster</span>
+                <span><strong>Finish:</strong> Long-Lasting, Tarnish-Resistant</span>
               </div>
               <div className="spec-row">
                 <span className="spec-bullet-dot"></span>
-                <span><strong>Packaging:</strong> Signature Velora Protective Box & Pouch</span>
+                <span><strong>Packaging:</strong> Signature Velora Packaging</span>
               </div>
               <div className="spec-row">
                 <span className="spec-bullet-dot"></span>
-                <span><strong>Delivery:</strong> Island-wide shipping across Sri Lanka & worldwide</span>
+                <span><strong>Delivery:</strong> Delivered Across Sri Lanka</span>
               </div>
             </div>
 

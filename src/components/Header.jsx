@@ -20,14 +20,14 @@ export const Header = ({
       <div className="announcement-bar">
         <div className="announcement-marquee-track">
           <div className="marquee-content">
-            <span className="marquee-item">✦ Standard delivery available islandwide (Sri Lanka) & worldwide</span>
+            <span className="marquee-item">✦ Standard delivery available islandwide across Sri Lanka</span>
             <span className="marquee-item">✦ Pre-orders only</span>
             <span className="marquee-item">✦ Orders & Inquiries on Instagram: <a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">@_velora_.accessories</a></span>
             <span className="marquee-item">✦ Velora Accessories Official Boutique</span>
           </div>
           {/* Duplicate for infinite seamless smooth loop */}
           <div className="marquee-content" aria-hidden="true">
-            <span className="marquee-item">✦ Standard delivery available islandwide (Sri Lanka) & worldwide</span>
+            <span className="marquee-item">✦ Standard delivery available islandwide across Sri Lanka</span>
             <span className="marquee-item">✦ Pre-orders only</span>
             <span className="marquee-item">✦ Orders & Inquiries on Instagram: <a href="https://instagram.com/_velora_.accessories" target="_blank" rel="noopener noreferrer">@_velora_.accessories</a></span>
             <span className="marquee-item">✦ Velora Accessories Official Boutique</span>

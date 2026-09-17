@@ -55,6 +55,7 @@ export const Footer = () => {
               <li><a href="#collection-catalog">Statement Rings</a></li>
               <li><a href="#collection-catalog">Bags & Clutches</a></li>
               <li><a href="#collection-catalog">Hair Accessories</a></li>
+              <li><a href="#collection-catalog">Other Accessories</a></li>
             </ul>
           </div>
 

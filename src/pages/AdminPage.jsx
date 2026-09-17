@@ -75,7 +75,7 @@ export const AdminPage = ({
     available: true
   });
 
-  const categories = ['Earrings', 'Necklaces', 'Bracelets', 'Rings', 'Bags', 'Hair Accessories'];
+  const categories = ['Earrings', 'Necklaces', 'Bracelets', 'Rings', 'Bags', 'Hair Accessories', 'Other'];
   const availableTags = ['Best Seller', 'New', 'Trending', 'Exclusive', 'Pre-Order', 'Popular', 'Lifestyle'];
 
   const triggerNotification = (msg) => {

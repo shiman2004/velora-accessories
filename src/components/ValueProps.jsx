@@ -12,7 +12,7 @@ export const ValueProps = () => {
         </svg>
       ),
       title: 'Island-Wide Delivery',
-      subtitle: 'Fast, secure courier shipping across all 25 districts in Sri Lanka.'
+      subtitle: 'Secure delivery across Sri Lanka.'
     },
     {
       icon: (
@@ -23,7 +23,7 @@ export const ValueProps = () => {
         </svg>
       ),
       title: 'Curated Pre-Orders',
-      subtitle: 'Exclusive boutique pieces handpicked and ordered specifically for you.'
+      subtitle: 'Thoughtfully selected pieces, available to pre-order.'
     },
     {
       icon: (
@@ -34,7 +34,7 @@ export const ValueProps = () => {
         </svg>
       ),
       title: 'Instagram Concierge',
-      subtitle: 'Personal styling advice, custom pre-orders & direct DM checkout.'
+      subtitle: 'Personal assistance and easy DM ordering.'
     }
   ];
 

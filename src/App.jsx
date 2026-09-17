@@ -114,7 +114,7 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const categories = ['All', 'Earrings', 'Necklaces', 'Bracelets', 'Rings', 'Bags', 'Hair Accessories'];
+  const categories = ['All', 'Earrings', 'Necklaces', 'Bracelets', 'Rings', 'Bags', 'Hair Accessories', 'Other'];
 
   // If on Admin Page view, render the dedicated Admin Portal
   if (currentView === 'admin') {
