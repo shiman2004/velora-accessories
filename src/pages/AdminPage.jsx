@@ -312,11 +312,13 @@ export const AdminPage = ({
               <span className="admin-script">Velora</span>
               <span className="admin-portal-tag">PORTAL</span>
             </div>
-            <span className="admin-badge-pill">Boutique CMS</span>
-            <span className={`db-status-badge ${isUsingSupabase ? 'connected' : 'local'}`} title={isUsingSupabase ? 'Connected to Supabase live database' : 'Running in local mode. Add Supabase keys to connect live database.'}>
-              <span className="status-dot"></span>
-              <span>{isUsingSupabase ? 'Live Database Active' : 'Local Storage Mode'}</span>
-            </span>
+            <div className="admin-badge-group">
+              <span className="admin-badge-pill">CMS</span>
+              <span className={`db-status-badge ${isUsingSupabase ? 'connected' : 'local'}`} title={isUsingSupabase ? 'Connected to Supabase live database' : 'Running in local mode'}>
+                <span className="status-dot"></span>
+                <span className="db-status-text">{isUsingSupabase ? 'Live DB' : 'Local'}</span>
+              </span>
+            </div>
           </div>
 
           <div className="admin-nav-actions">
@@ -324,11 +326,12 @@ export const AdminPage = ({
               type="button" 
               className="btn-back-to-store"
               onClick={onBackToStore}
+              title="Return to customer boutique storefront"
             >
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.2">
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
               </svg>
-              <span>Back to Storefront</span>
+              <span className="btn-text-full">Storefront</span>
             </button>
 
             <button 
@@ -337,12 +340,12 @@ export const AdminPage = ({
               onClick={handleLogout}
               title="Log out of Admin Portal"
             >
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.2">
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                 <polyline points="16 17 21 12 16 7"></polyline>
                 <line x1="21" y1="12" x2="9" y2="12"></line>
               </svg>
-              <span>Logout</span>
+              <span className="btn-text-full">Logout</span>
             </button>
           </div>
         </div>
@@ -357,67 +360,123 @@ export const AdminPage = ({
 
       {/* 2. Main Admin Workspace Container */}
       <main className="admin-workspace-container">
-        {/* Page Title & Add Button */}
+        {/* Page Title & Add Button Row */}
         <div className="admin-header-row">
-          <div>
+          <div className="admin-title-wrap">
             <span className="admin-eyebrow">DASHBOARD & INVENTORY</span>
             <h1 className="admin-page-title">Catalog Management</h1>
             <p className="admin-page-subtitle">
-              Manage inventory, update prices, upload photos from device, and manage boutique availability.
+              Manage inventory, prices, photo uploads, and boutique availability.
             </p>
           </div>
 
           <button 
             type="button" 
-            className="btn-primary-add"
+            className={`btn-primary-add ${showAddForm ? 'is-active' : ''}`}
             onClick={() => {
               setShowAddForm(!showAddForm);
               setEditingProduct(null);
             }}
           >
-            {showAddForm ? '✕ Close Form' : '+ Add New Accessory'}
+            {showAddForm ? (
+              <>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                <span>Close Form</span>
+              </>
+            ) : (
+              <>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span>Add New Accessory</span>
+              </>
+            )}
           </button>
         </div>
 
-        {/* 3. Analytics KPI Cards */}
+        {/* 3. Analytics KPI Cards (Mobile-Optimized 2x2 Grid) */}
         <div className="admin-kpi-grid">
           <div className="kpi-card">
-            <span className="kpi-label">TOTAL ITEMS</span>
+            <div className="kpi-top">
+              <span className="kpi-label">TOTAL ITEMS</span>
+              <div className="kpi-icon-badge icon-items">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                </svg>
+              </div>
+            </div>
             <span className="kpi-value">{totalItems}</span>
-            <span className="kpi-sub">Active boutique catalog</span>
+            <span className="kpi-sub">Boutique items</span>
           </div>
 
           <div className="kpi-card">
-            <span className="kpi-label">READY IN STOCK</span>
+            <div className="kpi-top">
+              <span className="kpi-label">IN STOCK</span>
+              <div className="kpi-icon-badge icon-stock">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
             <span className="kpi-value status-stock">{inStockCount}</span>
-            <span className="kpi-sub">Available for immediate delivery</span>
+            <span className="kpi-sub">Ready to ship</span>
           </div>
 
           <div className="kpi-card">
-            <span className="kpi-label">PRE-ORDER QUEUE</span>
+            <div className="kpi-top">
+              <span className="kpi-label">PRE-ORDER</span>
+              <div className="kpi-icon-badge icon-preorder">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+            </div>
             <span className="kpi-value status-preorder">{preOrderCount}</span>
-            <span className="kpi-sub">Made-to-order items</span>
+            <span className="kpi-sub">Made-to-order</span>
           </div>
 
           <div className="kpi-card">
-            <span className="kpi-label">CATALOG VALUE</span>
+            <div className="kpi-top">
+              <span className="kpi-label">CATALOG VALUE</span>
+              <div className="kpi-icon-badge icon-value">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+            </div>
             <span className="kpi-value">Rs. {totalCatalogValue.toLocaleString()}</span>
-            <span className="kpi-sub">Combined retail value</span>
+            <span className="kpi-sub">Total inventory</span>
           </div>
         </div>
 
-        {/* 4. Add / Edit Product Panel with Media File Upload */}
+        {/* 4. Add / Edit Product Panel */}
         {(showAddForm || editingProduct) && (
           <div className="admin-editor-card">
             <div className="editor-card-header">
-              <h2>{editingProduct ? `Edit Product: ${editingProduct.name}` : 'Add New Boutique Accessory'}</h2>
-              <button className="editor-close-btn" onClick={handleCancelForm}>✕</button>
+              <div className="editor-card-title-wrap">
+                <span className="editor-badge-eyebrow">{editingProduct ? 'EDITING MODE' : 'NEW CREATION'}</span>
+                <h2>{editingProduct ? `Edit: ${editingProduct.name}` : 'Add New Boutique Accessory'}</h2>
+              </div>
+              <button 
+                type="button" 
+                className="editor-close-btn" 
+                onClick={handleCancelForm}
+                aria-label="Close editor"
+              >
+                ✕
+              </button>
             </div>
 
             <form onSubmit={editingProduct ? handleSaveEdit : handleAddSubmit} className="admin-editor-form">
               <div className="form-fields-grid">
                 <div className="admin-input-group">
-                  <label>Product Name *</label>
+                  <label>Product Name <span className="req-star">*</span></label>
                   <input
                     type="text"
                     required
@@ -428,7 +487,7 @@ export const AdminPage = ({
                 </div>
 
                 <div className="admin-input-group">
-                  <label>Category *</label>
+                  <label>Category <span className="req-star">*</span></label>
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({...formData, category: e.target.value})}
@@ -440,10 +499,11 @@ export const AdminPage = ({
                 </div>
 
                 <div className="admin-input-group">
-                  <label>Price (LKR / Rs.) *</label>
+                  <label>Price (Rs. / LKR) <span className="req-star">*</span></label>
                   <input
                     type="number"
                     required
+                    min="0"
                     placeholder="e.g. 3500"
                     value={formData.price}
                     onChange={(e) => setFormData({...formData, price: e.target.value})}
@@ -451,7 +511,7 @@ export const AdminPage = ({
                 </div>
 
                 <div className="admin-input-group">
-                  <label>Highlight Badge Tag</label>
+                  <label>Highlight Badge</label>
                   <select
                     value={formData.tag}
                     onChange={(e) => setFormData({...formData, tag: e.target.value})}
@@ -465,21 +525,21 @@ export const AdminPage = ({
                 {/* Media Image Upload Section */}
                 <div className="admin-input-group full-width">
                   <div className="media-section-header">
-                    <label>Product Media & Photo *</label>
+                    <label>Product Photo <span className="req-star">*</span></label>
                     <div className="image-mode-tabs">
                       <button
                         type="button"
                         className={`image-mode-btn ${imageInputMode === 'upload' ? 'active' : ''}`}
                         onClick={() => setImageInputMode('upload')}
                       >
-                        📁 Upload from Device
+                        📁 Device Upload
                       </button>
                       <button
                         type="button"
                         className={`image-mode-btn ${imageInputMode === 'url' ? 'active' : ''}`}
                         onClick={() => setImageInputMode('url')}
                       >
-                        🔗 Paste Web Link
+                        🔗 Web URL
                       </button>
                     </div>
                   </div>
@@ -501,7 +561,7 @@ export const AdminPage = ({
                         <div className="dropzone-preview-content">
                           <img src={formData.image} alt="Uploaded preview" className="dropzone-preview-img" />
                           <div className="dropzone-preview-info">
-                            <span className="dropzone-success-text">✓ Photo selected</span>
+                            <span className="dropzone-success-text">✓ Photo ready</span>
                             <button 
                               type="button" 
                               className="btn-change-photo"
@@ -510,30 +570,30 @@ export const AdminPage = ({
                                 fileInputRef.current?.click();
                               }}
                             >
-                              Choose Different Photo
+                              Tap to Choose Another
                             </button>
                           </div>
                         </div>
                       ) : (
                         <div className="dropzone-empty-content">
                           <div className="dropzone-icon-circle">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8">
                               <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
                               <circle cx="8.5" cy="8.5" r="1.5"/>
                               <polyline points="21 15 16 10 5 21"/>
                             </svg>
                           </div>
                           <p className="dropzone-main-text">
-                            <strong>Click to upload</strong> or drag & drop photo here
+                            <strong>Tap to choose photo</strong> from gallery or camera
                           </p>
                           <p className="dropzone-sub-text">
-                            Supports PNG, JPG, JPEG, WEBP from your phone or computer
+                            Auto-compressed for fast loading (PNG, JPG, WEBP)
                           </p>
                         </div>
                       )}
                     </div>
                   ) : (
-                    <div>
+                    <div className="url-input-wrap">
                       <input
                         type="url"
                         placeholder="https://images.unsplash.com/... or direct image link"
@@ -543,7 +603,7 @@ export const AdminPage = ({
                       {formData.image && (
                         <div className="image-preview-box">
                           <img src={formData.image} alt="Preview" className="preview-thumb" />
-                          <span className="preview-caption">Live Image Preview</span>
+                          <span className="preview-caption">Live Preview</span>
                         </div>
                       )}
                     </div>
@@ -551,7 +611,7 @@ export const AdminPage = ({
                 </div>
 
                 <div className="admin-input-group full-width">
-                  <label>Description & Materials</label>
+                  <label>Description & Material Details</label>
                   <textarea
                     rows="3"
                     placeholder="18K gold plated, hypoallergenic, tarnish-resistant finish..."
@@ -567,14 +627,14 @@ export const AdminPage = ({
                       checked={formData.available}
                       onChange={(e) => setFormData({...formData, available: e.target.checked})}
                     />
-                    <span>Item is Ready In Stock (Uncheck for Pre-Order)</span>
+                    <span><strong>Ready In Stock</strong> (Uncheck to mark as Made-to-Order / Pre-Order)</span>
                   </label>
                 </div>
               </div>
 
               <div className="editor-actions-row">
                 <button type="submit" className="btn-save-primary" disabled={uploadingImage}>
-                  {uploadingImage ? 'Processing Photo...' : (editingProduct ? 'Save Changes' : 'Create Accessory')}
+                  {uploadingImage ? 'Processing Photo...' : (editingProduct ? 'Save Changes' : 'Publish Accessory')}
                 </button>
                 <button type="button" className="btn-cancel-secondary" onClick={handleCancelForm}>
                   Cancel
@@ -593,38 +653,171 @@ export const AdminPage = ({
             </svg>
             <input 
               type="text" 
-              placeholder="Search products by title or description..." 
+              placeholder="Search accessories by name, category..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
+            {searchQuery && (
+              <button 
+                type="button" 
+                className="search-clear-btn" 
+                onClick={() => setSearchQuery('')}
+                title="Clear search"
+              >
+                ✕
+              </button>
+            )}
           </div>
 
           <div className="filter-selects-group">
-            <select 
-              value={categoryFilter} 
-              onChange={(e) => setCategoryFilter(e.target.value)}
-              className="admin-select"
-            >
-              <option value="All">All Categories</option>
-              {categories.map(cat => (
-                <option key={cat} value={cat}>{cat}</option>
-              ))}
-            </select>
+            <div className="select-wrap">
+              <select 
+                value={categoryFilter} 
+                onChange={(e) => setCategoryFilter(e.target.value)}
+                className="admin-select"
+              >
+                <option value="All">All Categories ({products.length})</option>
+                {categories.map(cat => {
+                  const count = products.filter(p => p.category === cat).length;
+                  return <option key={cat} value={cat}>{cat} ({count})</option>;
+                })}
+              </select>
+            </div>
 
-            <select 
-              value={statusFilter} 
-              onChange={(e) => setStatusFilter(e.target.value)}
-              className="admin-select"
-            >
-              <option value="All">All Statuses</option>
-              <option value="in-stock">In Stock</option>
-              <option value="pre-order">Pre-Order</option>
-            </select>
+            <div className="select-wrap">
+              <select 
+                value={statusFilter} 
+                onChange={(e) => setStatusFilter(e.target.value)}
+                className="admin-select"
+              >
+                <option value="All">All Statuses</option>
+                <option value="in-stock">In Stock ({inStockCount})</option>
+                <option value="pre-order">Pre-Order ({preOrderCount})</option>
+              </select>
+            </div>
           </div>
         </div>
 
-        {/* 6. Comprehensive Product Table */}
-        <div className="admin-table-wrapper-card">
+        {/* Results Counter & Quick summary */}
+        <div className="admin-results-bar">
+          <span className="results-count-text">
+            Showing <strong>{filteredProducts.length}</strong> of {products.length} products
+          </span>
+          {(searchQuery || categoryFilter !== 'All' || statusFilter !== 'All') && (
+            <button 
+              type="button" 
+              className="btn-reset-filters"
+              onClick={() => {
+                setSearchQuery('');
+                setCategoryFilter('All');
+                setStatusFilter('All');
+              }}
+            >
+              Reset Filters ↺
+            </button>
+          )}
+        </div>
+
+        {/* 6A. MOBILE-FRIENDLY PRODUCT CARDS LIST (Active on <= 768px) */}
+        <div className="admin-mobile-cards-list">
+          {filteredProducts.length === 0 ? (
+            <div className="admin-empty-state-card">
+              <div className="empty-state-icon">🔍</div>
+              <h3>No Accessories Found</h3>
+              <p>Try adjusting your search query or filters.</p>
+              <button 
+                type="button" 
+                className="btn-empty-reset"
+                onClick={() => {
+                  setSearchQuery('');
+                  setCategoryFilter('All');
+                  setStatusFilter('All');
+                }}
+              >
+                Clear All Filters
+              </button>
+            </div>
+          ) : (
+            filteredProducts.map(product => (
+              <div key={product.id} className="admin-mobile-card">
+                {/* Header Row: Image + Main Details */}
+                <div className="mobile-card-main">
+                  <img 
+                    src={product.image || 'https://images.unsplash.com/photo-1630019852942-f89202989a59?w=800&auto=format&fit=crop&q=80'} 
+                    alt={product.name} 
+                    className="mobile-card-img" 
+                  />
+                  <div className="mobile-card-info">
+                    <div className="mobile-card-tags">
+                      <span className="table-category-tag">{product.category}</span>
+                      {product.tag && (
+                        <span className="table-badge-tag">{product.tag}</span>
+                      )}
+                    </div>
+                    <h3 className="mobile-card-title">{product.name}</h3>
+                    <div className="mobile-card-price">
+                      Rs. {product.price?.toLocaleString()}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Middle: Description snippet if available */}
+                {product.description && (
+                  <p className="mobile-card-desc">
+                    {product.description.length > 85 ? `${product.description.slice(0, 85)}...` : product.description}
+                  </p>
+                )}
+
+                {/* Bottom Row: Status Toggle + Edit/Delete Actions */}
+                <div className="mobile-card-footer">
+                  <button
+                    type="button"
+                    className={`mobile-status-btn ${product.available ? 'in-stock' : 'pre-order'}`}
+                    onClick={() => {
+                      onToggleAvailability(product.id);
+                      triggerNotification(`Status changed to ${!product.available ? 'In Stock' : 'Pre-Order'} for "${product.name}"`);
+                    }}
+                    title="Tap to toggle in-stock / pre-order status"
+                  >
+                    <span className="status-dot"></span>
+                    <span>{product.available ? 'In Stock' : 'Pre-Order'}</span>
+                  </button>
+
+                  <div className="mobile-action-group">
+                    <button 
+                      type="button" 
+                      className="btn-mobile-edit"
+                      onClick={() => handleEdit(product)}
+                      title="Edit accessory"
+                    >
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                      </svg>
+                      <span>Edit</span>
+                    </button>
+
+                    <button 
+                      type="button" 
+                      className="btn-mobile-delete"
+                      onClick={() => handleDelete(product.id, product.name)}
+                      title="Delete accessory"
+                    >
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                      </svg>
+                      <span>Delete</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* 6B. DESKTOP FULL TABLE (Active on > 768px) */}
+        <div className="admin-table-wrapper-card admin-desktop-table-container">
           <table className="admin-full-table">
             <thead>
               <tr>
